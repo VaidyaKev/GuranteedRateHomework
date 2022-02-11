@@ -4,5 +4,9 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\GuranteedRate.Homeword.Domain\GuranteedRate.Homework.Domain.csproj" />
+  </ItemGroup>
+
 
 </Project>

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.Extensions.DependencyInjection;
+using System;
+using DI = GuranteedRate.Homework.Domain.Helpers.DependencyInjection;
 
 namespace GuranteedRate.Homework.Command
 {
@@ -7,6 +9,15 @@ namespace GuranteedRate.Homework.Command
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
+            DependecyInjection();
+        }
+
+        static void DependecyInjection()
+        {
+            var serviceProvider = new ServiceCollection();
+            DI.ConfigureServices(serviceProvider);
+            serviceProvider
+                .BuildServiceProvider();
         }
     }
 }

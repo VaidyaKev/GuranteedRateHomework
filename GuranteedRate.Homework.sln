@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GuranteedRate.Homework.Comm
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuranteedRate.Homework.Model", "GuranteedRate.Homework.Model\GuranteedRate.Homework.Model.csproj", "{DDD214E3-AE95-4C54-AAA8-0B268D68E6ED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuranteedRate.Homeword.Domain", "GuranteedRate.Homeword.Domain\GuranteedRate.Homeword.Domain.csproj", "{326A4442-B741-4650-B691-307A682FDFEE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuranteedRate.Homework.Domain", "GuranteedRate.Homeword.Domain\GuranteedRate.Homework.Domain.csproj", "{326A4442-B741-4650-B691-307A682FDFEE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuranteedRate.Homework.Repository", "GuranteedRate.Homework.Repository\GuranteedRate.Homework.Repository.csproj", "{BB1B712A-DA60-415A-B555-16C563DD261E}"
 EndProject
