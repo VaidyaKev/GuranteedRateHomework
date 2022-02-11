@@ -10,14 +10,20 @@ namespace GuranteedRate.Homework.Command
         {
             Console.WriteLine("Hello World!");
             DependecyInjection();
+
+            Console.ReadLine();
+            
         }
 
         static void DependecyInjection()
         {
-            var serviceProvider = new ServiceCollection();
+            var serviceProvider = new ServiceCollection()
+                .AddScoped<IExecutor, Executor>();
+
             DI.ConfigureServices(serviceProvider);
-            serviceProvider
-                .BuildServiceProvider();
+            serviceProvider.BuildServiceProvider()
+                .GetService<IExecutor>()
+                .Execute();
         }
     }
 }
