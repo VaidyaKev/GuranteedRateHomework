@@ -1,7 +1,5 @@
-﻿using GuranteedRate.Homework.BusineesLogic.DataContract;
+﻿using GuranteedRate.Homework.BusineesLogic.Interfaces;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace GuranteedRate.Homework.Command
 {
@@ -16,7 +14,13 @@ namespace GuranteedRate.Homework.Command
 
         public void Execute()
         {
-            Console.WriteLine(_recordBusinessLogic.GetRecord(""));
+            _recordBusinessLogic.AddRecord($"added this record at {DateTime.Now}");
+            var records = _recordBusinessLogic.GetRecords();
+
+            foreach(var record in records)
+            {
+                Console.WriteLine(record);
+            }
         }
     }
 }
