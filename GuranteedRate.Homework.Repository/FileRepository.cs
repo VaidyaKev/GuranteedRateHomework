@@ -1,23 +1,27 @@
 ﻿using GuranteedRate.Homework.BusineesLogic.DataContract;
-using System;
+using System.IO;
 
 namespace GuranteedRate.Homework.Repository
 {
     public class FileRepository : IFileRepository
     {
-        public string GetFileContent(string folderPath, string fileName)
+        private const string FileType = ".txt";
+
+        public string[] GetFileName(string folderPath)
         {
-            return "DI works";
+            return Directory.GetFiles(folderPath, $"*{FileType}");
         }
 
-        public int GetFileCount(string folderPath)
+        public string[] GetFileContent(string folderPath, string fileName)
         {
-            throw new NotImplementedException();
+            var filePath = Path.Combine(folderPath, fileName);
+            return File.ReadAllLines(filePath);
         }
 
-        public void WriteFileContent(string folderPath, string fileName)
+        public void WriteFileContents(string folderPath, string fileName, string[] contents)
         {
-            throw new NotImplementedException();
+            var filePath = Path.Combine(folderPath, fileName);
+            File.WriteAllLines(filePath, contents);
         }
     }
 }

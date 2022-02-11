@@ -1,9 +1,11 @@
-﻿namespace GuranteedRate.Homework.BusineesLogic.DataContract
+﻿using System.Collections.Generic;
+
+namespace GuranteedRate.Homework.BusineesLogic.DataContract
 {
     public interface IFileRepository
     {
-        int GetFileCount(string folderPath);
-        string GetFileContent(string folderPath, string fileName);
-        void WriteFileContent(string folderPath, string fileName);
+        string[] GetFileName(string folderPath);
+        string[] GetFileContent(string folderPath, string fileName);
+        void WriteFileContents(string folderPath, string fileName, string[] contents);
     }
 }
