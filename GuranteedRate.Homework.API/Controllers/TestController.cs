@@ -1,4 +1,4 @@
-﻿using GuranteedRate.Homework.BusineesLogic.DataContract;
+﻿using GuranteedRate.Homework.BusineesLogic.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GuranteedRate.Homework.API.Controllers
@@ -18,7 +18,7 @@ namespace GuranteedRate.Homework.API.Controllers
         [HttpGet]
         public string Get()
         {
-            return _recordBusinessLogic.GetRecord("");
+            return _recordBusinessLogic.GetRecords()[1];
         }
     }
 }

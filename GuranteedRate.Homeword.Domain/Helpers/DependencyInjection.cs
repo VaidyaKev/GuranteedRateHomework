@@ -1,5 +1,6 @@
 ﻿using GuranteedRate.Homework.BusineesLogic.DataContract;
 using GuranteedRate.Homework.BusineesLogic.Implementations;
+using GuranteedRate.Homework.BusineesLogic.Interfaces;
 using GuranteedRate.Homework.Repository;
 using Microsoft.Extensions.DependencyInjection;
 
