@@ -7,7 +7,7 @@ namespace GuranteedRate.Homework.Repository
     {
         public string GetFileContent(string folderPath, string fileName)
         {
-            throw new NotImplementedException();
+            return "DI works";
         }
 
         public int GetFileCount(string folderPath)
