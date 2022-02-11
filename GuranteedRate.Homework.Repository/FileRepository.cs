@@ -7,7 +7,7 @@ namespace GuranteedRate.Homework.Repository
     {
         private const string FileType = ".txt";
 
-        public string[] GetFileName(string folderPath)
+        public string[] GetFileNames(string folderPath)
         {
             return Directory.GetFiles(folderPath, $"*{FileType}");
         }
@@ -20,7 +20,7 @@ namespace GuranteedRate.Homework.Repository
 
         public void WriteFileContents(string folderPath, string fileName, string[] contents)
         {
-            var filePath = Path.Combine(folderPath, fileName);
+            var filePath = Path.Combine(folderPath, $"{fileName}{FileType}");
             File.WriteAllLines(filePath, contents);
         }
     }
