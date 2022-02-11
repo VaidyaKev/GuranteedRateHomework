@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuranteedRate.Homework.Repo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuranteedRate.Homework.BusineesLogic", "GuranteedRate.Homework.BusineesLogic\GuranteedRate.Homework.BusineesLogic.csproj", "{A1F3F6B9-FF44-4C50-9D27-1D862E86B682}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuranteedRate.Homework.API", "GuranteedRate.Homework.API\GuranteedRate.Homework.API.csproj", "{A4A17E44-1DFB-4536-B33F-FE5E3CE39704}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{A1F3F6B9-FF44-4C50-9D27-1D862E86B682}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A1F3F6B9-FF44-4C50-9D27-1D862E86B682}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A1F3F6B9-FF44-4C50-9D27-1D862E86B682}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A4A17E44-1DFB-4536-B33F-FE5E3CE39704}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4A17E44-1DFB-4536-B33F-FE5E3CE39704}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4A17E44-1DFB-4536-B33F-FE5E3CE39704}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4A17E44-1DFB-4536-B33F-FE5E3CE39704}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
