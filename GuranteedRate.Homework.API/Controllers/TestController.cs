@@ -18,7 +18,7 @@ namespace GuranteedRate.Homework.API.Controllers
         [HttpGet]
         public string Get()
         {
-            return _recordBusinessLogic.GetRecords()[1];
+            return "";
         }
     }
 }

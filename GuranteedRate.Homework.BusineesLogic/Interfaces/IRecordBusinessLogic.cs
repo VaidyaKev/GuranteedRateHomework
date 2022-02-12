@@ -1,10 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using GuranteedRate.Homework.Model;
+using System.Collections.Generic;
 
 namespace GuranteedRate.Homework.BusineesLogic.Interfaces
 {
     public interface IRecordBusinessLogic
     {
-        List<string> GetRecords();
-        void AddRecord(string record);
+        List<Person> GetRecords();
+        void AddRecord(Person person);
     }
 }
