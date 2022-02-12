@@ -18,51 +18,16 @@ namespace GuranteedRate.Homework.Command
             _recordBusinessLogic = recordBusinessLogic;
             _menuOptions = new List<MenuOptions>()
             {
-                new MenuOptions("Add_Person", () => WriteTempMsg("Add Person Record")),
-                new MenuOptions("Sort_FirstName", () => WriteTempMsg("Sort by First Name")),
-                new MenuOptions("Sort_LastName", () => WriteTempMsg("Sort by Last Name")),
-                new MenuOptions("Sort_Email", () => WriteTempMsg("Sort by Email")),
-                new MenuOptions("Sort_DOB", () => WriteTempMsg("Sort by Date of Birth")),
-                new MenuOptions("Sort_Color", () => WriteTempMsg("Sort by Favorite"))
+                new MenuOptions("AddPerson", () => AddPerson("Add Person Record")),
+                new MenuOptions("SortByColorThenLNameAsc", () => Sorta("Sort by First Name")),
+                new MenuOptions("SortByDobAsc", () => Sortb("Sort by Last Name")),
+                new MenuOptions("SortByLNameDesc", () => sortc("Sort by Email")),
             };
         }
 
         public void Execute()
         {
-            int index = 0;
-
-            WriteMenu(_menuOptions, _menuOptions[index]);
-
-            ConsoleKeyInfo keyInfo;
-            do
-            {
-                keyInfo = Console.ReadKey();
-
-                // Handle each key input (down arrow will write the menu again with a different selected item)
-                if (keyInfo.Key == ConsoleKey.DownArrow)
-                {
-                    if (index + 1 < _menuOptions.Count)
-                    {
-                        index++;
-                        WriteMenu(_menuOptions, _menuOptions[index]);
-                    }
-                }
-                if (keyInfo.Key == ConsoleKey.UpArrow)
-                {
-                    if (index - 1 >= 0)
-                    {
-                        index--;
-                        WriteMenu(_menuOptions, _menuOptions[index]);
-                    }
-                }
-                // Handle different action for the option
-                if (keyInfo.Key == ConsoleKey.Enter)
-                {
-                    _menuOptions[index].Selected.Invoke();
-                    index = 0;
-                }
-            }
-            while (keyInfo.Key != ConsoleKey.X);
+            RunMenu();
 
             //var person = new Person()
             //{
@@ -85,12 +50,75 @@ namespace GuranteedRate.Homework.Command
             //table.Write();
         }
 
+        private void RunMenu()
+        {
+            int index = 0;
+
+            WriteMenu(_menuOptions, _menuOptions[index]);
+
+            ConsoleKeyInfo keyInfo;
+            do
+            {
+                keyInfo = Console.ReadKey();
+
+                if (keyInfo.Key == ConsoleKey.DownArrow)
+                {
+                    if (index + 1 < _menuOptions.Count)
+                    {
+                        index++;
+                        WriteMenu(_menuOptions, _menuOptions[index]);
+                    }
+                }
+                if (keyInfo.Key == ConsoleKey.UpArrow)
+                {
+                    if (index - 1 >= 0)
+                    {
+                        index--;
+                        WriteMenu(_menuOptions, _menuOptions[index]);
+                    }
+                }
+                if (keyInfo.Key == ConsoleKey.Enter)
+                {
+                    _menuOptions[index].Selected.Invoke();
+                    index = 0;
+                }
+            }
+            while (keyInfo.Key != ConsoleKey.X);
+        }
+
+        private void AddPerson(string msg)
+        {
+            WriteTempMsg(msg);
+
+            WriteMenu(_menuOptions, _menuOptions[0]);
+        }
+
+        private void Sorta(string msg)
+        {
+            WriteTempMsg(msg);
+
+            WriteMenu(_menuOptions, _menuOptions[0]);
+        }
+
+        private void Sortb(string msg)
+        {
+            WriteTempMsg(msg);
+
+            WriteMenu(_menuOptions, _menuOptions[0]);
+        }
+
+        private void sortc(string msg)
+        {
+            WriteTempMsg(msg);
+
+            WriteMenu(_menuOptions, _menuOptions[0]);
+        }
+
         private void WriteTempMsg(string message)
         {
             Console.Clear();
             Console.WriteLine(message);
             Thread.Sleep(3000);
-            WriteMenu(_menuOptions, _menuOptions[0]);
         }
 
         private void WriteMenu(List<MenuOptions> menuOptions, MenuOptions selectedOption)
