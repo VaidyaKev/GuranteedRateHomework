@@ -1,9 +1,9 @@
+using GuranteedRate.Homework.DI;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using DI = GuranteedRate.Homework.Domain.Helpers.DependencyInjection;
 
 namespace GuranteedRate.Homework.API
 {
@@ -20,7 +20,7 @@ namespace GuranteedRate.Homework.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            DI.ConfigureServices(services);
+            DependencyInjection.ConfigureServices(services);
             services.AddSwaggerGen();
         }
 

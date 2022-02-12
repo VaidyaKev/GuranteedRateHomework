@@ -5,7 +5,7 @@ using GuranteedRate.Homework.Repository;
 using Microsoft.Extensions.DependencyInjection;
 
 
-namespace GuranteedRate.Homeword.DI
+namespace GuranteedRate.Homework.DI
 {
     public static class DependencyInjection
     {

@@ -1,6 +1,6 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using GuranteedRate.Homework.DI;
+using Microsoft.Extensions.DependencyInjection;
 using System;
-using DI = GuranteedRate.Homework.Domain.Helpers.DependencyInjection;
 
 namespace GuranteedRate.Homework.Command
 {
@@ -20,7 +20,7 @@ namespace GuranteedRate.Homework.Command
             var serviceProvider = new ServiceCollection()
                 .AddScoped<IExecutor, Executor>();
 
-            DI.ConfigureServices(serviceProvider);
+            DependencyInjection.ConfigureServices(serviceProvider);
             serviceProvider.BuildServiceProvider()
                 .GetService<IExecutor>()
                 .Execute();

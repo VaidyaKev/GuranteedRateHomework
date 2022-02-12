@@ -15,7 +15,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GuranteedRate.Homework.Busi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GuranteedRate.Homework.API", "GuranteedRate.Homework.API\GuranteedRate.Homework.API.csproj", "{A4A17E44-1DFB-4536-B33F-FE5E3CE39704}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuranteedRate.Homeword.DI", "GuranteedRate.Homeword.DI\GuranteedRate.Homeword.DI.csproj", "{971CDC98-5E1C-4D50-90E9-D15EC1A73D04}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuranteedRate.Homework.DI", "GuranteedRate.Homeword.DI\GuranteedRate.Homework.DI.csproj", "{971CDC98-5E1C-4D50-90E9-D15EC1A73D04}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
