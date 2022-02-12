@@ -12,7 +12,7 @@ namespace GuranteedRate.Homework.Domain.Extensions
             return $"{person.FirstName}{Delimiter}" +
                 $"{person.LastName}{Delimiter}" +
                 $"{person.Email}{Delimiter}" +
-                $"{person.DateOfBirth}{Delimiter}" +
+                $"{person.DateOfBirth.ToString("d")}{Delimiter}" +
                 $"{person.FavoriteColor}";
         }
 
