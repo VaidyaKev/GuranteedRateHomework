@@ -5,15 +5,17 @@ VisualStudioVersion = 17.0.32126.317
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GuranteedRate.Homework.Command", "GuranteedRate.Homework.Command\GuranteedRate.Homework.Command.csproj", "{A5612BC1-25A5-4F29-9936-0D89F73BEA02}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuranteedRate.Homework.Model", "GuranteedRate.Homework.Model\GuranteedRate.Homework.Model.csproj", "{DDD214E3-AE95-4C54-AAA8-0B268D68E6ED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GuranteedRate.Homework.Model", "GuranteedRate.Homework.Model\GuranteedRate.Homework.Model.csproj", "{DDD214E3-AE95-4C54-AAA8-0B268D68E6ED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuranteedRate.Homework.Domain", "GuranteedRate.Homeword.Domain\GuranteedRate.Homework.Domain.csproj", "{326A4442-B741-4650-B691-307A682FDFEE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GuranteedRate.Homework.Domain", "GuranteedRate.Homeword.Domain\GuranteedRate.Homework.Domain.csproj", "{326A4442-B741-4650-B691-307A682FDFEE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuranteedRate.Homework.Repository", "GuranteedRate.Homework.Repository\GuranteedRate.Homework.Repository.csproj", "{BB1B712A-DA60-415A-B555-16C563DD261E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GuranteedRate.Homework.Repository", "GuranteedRate.Homework.Repository\GuranteedRate.Homework.Repository.csproj", "{BB1B712A-DA60-415A-B555-16C563DD261E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuranteedRate.Homework.BusineesLogic", "GuranteedRate.Homework.BusineesLogic\GuranteedRate.Homework.BusineesLogic.csproj", "{A1F3F6B9-FF44-4C50-9D27-1D862E86B682}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GuranteedRate.Homework.BusineesLogic", "GuranteedRate.Homework.BusineesLogic\GuranteedRate.Homework.BusineesLogic.csproj", "{A1F3F6B9-FF44-4C50-9D27-1D862E86B682}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuranteedRate.Homework.API", "GuranteedRate.Homework.API\GuranteedRate.Homework.API.csproj", "{A4A17E44-1DFB-4536-B33F-FE5E3CE39704}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GuranteedRate.Homework.API", "GuranteedRate.Homework.API\GuranteedRate.Homework.API.csproj", "{A4A17E44-1DFB-4536-B33F-FE5E3CE39704}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuranteedRate.Homeword.DI", "GuranteedRate.Homeword.DI\GuranteedRate.Homeword.DI.csproj", "{971CDC98-5E1C-4D50-90E9-D15EC1A73D04}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{A4A17E44-1DFB-4536-B33F-FE5E3CE39704}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A4A17E44-1DFB-4536-B33F-FE5E3CE39704}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A4A17E44-1DFB-4536-B33F-FE5E3CE39704}.Release|Any CPU.Build.0 = Release|Any CPU
+		{971CDC98-5E1C-4D50-90E9-D15EC1A73D04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{971CDC98-5E1C-4D50-90E9-D15EC1A73D04}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{971CDC98-5E1C-4D50-90E9-D15EC1A73D04}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{971CDC98-5E1C-4D50-90E9-D15EC1A73D04}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
