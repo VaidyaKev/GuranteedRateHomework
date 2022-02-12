@@ -5,12 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="3.1.22" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\GuranteedRate.Homework.BusineesLogic\GuranteedRate.Homework.BusineesLogic.csproj" />
-    <ProjectReference Include="..\GuranteedRate.Homework.Repository\GuranteedRate.Homework.Repository.csproj" />
+    <ProjectReference Include="..\GuranteedRate.Homework.Model\GuranteedRate.Homework.Model.csproj" />
   </ItemGroup>
 
 </Project>

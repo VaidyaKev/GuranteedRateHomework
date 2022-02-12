@@ -10,6 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\GuranteedRate.Homeword.DI\GuranteedRate.Homework.DI.csproj" />
     <ProjectReference Include="..\GuranteedRate.Homeword.Domain\GuranteedRate.Homework.Domain.csproj" />
     <ProjectReference Include="..\GuranteedRate.Homework.BusineesLogic\GuranteedRate.Homework.BusineesLogic.csproj" />
     <ProjectReference Include="..\GuranteedRate.Homework.Repository\GuranteedRate.Homework.Repository.csproj" />
