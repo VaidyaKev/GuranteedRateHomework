@@ -28,26 +28,6 @@ namespace GuranteedRate.Homework.Command
         public void Execute()
         {
             RunMenu();
-
-            //var person = new Person()
-            //{
-            //    FirstName = "Joe",
-            //    LastName = "Doe",
-            //    Email = "JoeDoe@Domain.com",
-            //    DateOfBirth = DateTime.Now,
-            //    FavoriteColor = "Blue"
-            //};
-
-            //_recordBusinessLogic.AddRecord(person);
-            //var records = _recordBusinessLogic.GetRecords();
-
-            //var table = new ConsoleTable("FirstName", "LastName", "Email", "DOB", "FavoriteColor");
-            //foreach(var record in records)
-            //{
-            //    table.AddRow(record.FirstName, record.LastName, record.Email, record.DateOfBirth.ToString("d"), record.FavoriteColor);
-            //}
-
-            //table.Write();
         }
 
         private void RunMenu()
