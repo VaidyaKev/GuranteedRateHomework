@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuranteedRate.Homework.Repo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuranteedRate.Homework.Domain.Tests", "GuranteedRate.Homework.Domain.Tests\GuranteedRate.Homework.Domain.Tests.csproj", "{89200868-FC81-41CD-9C28-7F396635204D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuranteedRate.Homework.BusinessLogic", "GuranteedRate.Homework.BusinessLogic\GuranteedRate.Homework.BusinessLogic.csproj", "{B9EBCD85-D054-42EC-851D-4D2866DFB932}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -65,6 +67,10 @@ Global
 		{89200868-FC81-41CD-9C28-7F396635204D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{89200868-FC81-41CD-9C28-7F396635204D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{89200868-FC81-41CD-9C28-7F396635204D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B9EBCD85-D054-42EC-851D-4D2866DFB932}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9EBCD85-D054-42EC-851D-4D2866DFB932}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9EBCD85-D054-42EC-851D-4D2866DFB932}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9EBCD85-D054-42EC-851D-4D2866DFB932}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -72,6 +78,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{B88FD49F-E946-46F1-AC36-8331054A134F} = {D79D6653-F74E-48CC-89B2-03557FE70603}
 		{89200868-FC81-41CD-9C28-7F396635204D} = {D79D6653-F74E-48CC-89B2-03557FE70603}
+		{B9EBCD85-D054-42EC-851D-4D2866DFB932} = {D79D6653-F74E-48CC-89B2-03557FE70603}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7F8A5DA1-095F-4CA2-98B5-E1764CF47723}
