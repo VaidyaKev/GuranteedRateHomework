@@ -13,9 +13,9 @@ namespace GuranteedRate.Homework.BusineesLogic.Implementations
         private const string FilePrefixName = "PersonRecord";
         private readonly char[] _exceptedDelimiter;
         private readonly string _folderPath;
-        private readonly IFileRepository _fileRepository;
+        private readonly IPersonRepository _fileRepository;
 
-        public RecordBusinessLogic(IFileRepository fileRepository)
+        public RecordBusinessLogic(IPersonRepository fileRepository)
         {
             _fileRepository = fileRepository;
             _folderPath = Directory.GetCurrentDirectory();

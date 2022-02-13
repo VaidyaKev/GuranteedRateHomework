@@ -3,7 +3,7 @@ using System.IO;
 
 namespace GuranteedRate.Homework.Repository
 {
-    public class FileRepository : IFileRepository
+    public class PersonFileRepository : IPersonRepository
     {
         private const string FileType = ".txt";
 

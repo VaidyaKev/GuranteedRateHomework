@@ -13,7 +13,7 @@ namespace GuranteedRate.Homework.DI
         {
             services
                 .AddScoped<IRecordBusinessLogic, RecordBusinessLogic>()
-                .AddScoped<IFileRepository, FileRepository>();
+                .AddScoped<IPersonRepository, PersonFileRepository>();
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace GuranteedRate.Homework.BusineesLogic.DataContract
 {
-    public interface IFileRepository
+    public interface IPersonRepository
     {
         string[] GetFileNames(string folderPath);
         string[] GetFileContent(string folderPath, string fileName);
