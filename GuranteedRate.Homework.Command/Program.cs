@@ -1,4 +1,5 @@
-﻿using GuranteedRate.Homework.DI;
+﻿using GuranteedRate.Homework.BusineesLogic.DataContract;
+using GuranteedRate.Homework.DI;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 
@@ -8,7 +9,6 @@ namespace GuranteedRate.Homework.Command
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
             DependecyInjection();
 
             Console.ReadLine();
@@ -21,7 +21,12 @@ namespace GuranteedRate.Homework.Command
                 .AddScoped<IExecutor, Executor>();
 
             DependencyInjection.ConfigureServices(serviceProvider);
-            serviceProvider.BuildServiceProvider()
+            var buildService = serviceProvider.BuildServiceProvider();
+
+            var personRepo = buildService.GetService<IPersonRepository>();
+            new RecordHelper(personRepo);
+
+            buildService
                 .GetService<IExecutor>()
                 .Execute();
         }

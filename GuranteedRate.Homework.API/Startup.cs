@@ -1,3 +1,4 @@
+using GuranteedRate.Homework.BusineesLogic.DataContract;
 using GuranteedRate.Homework.DI;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -48,6 +49,9 @@ namespace GuranteedRate.Homework.API
             {
                 endpoints.MapControllers();
             });
+
+            var personRepo = app.ApplicationServices.GetService<IPersonRepository>();
+            new RecordHelper(personRepo);
         }
     }
 }
