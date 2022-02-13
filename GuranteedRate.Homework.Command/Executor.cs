@@ -90,6 +90,16 @@ namespace GuranteedRate.Homework.Command
         {
             WriteTempMsg(msg);
 
+            Console.WriteLine("Please enter record in one of the following format");
+            Console.WriteLine("LastName | FirstName | Email | FavoriteColor | DateOfBirth");
+            Console.WriteLine("LastName, FirstName, Email, FavoriteColor, DateOfBirth");
+            Console.WriteLine("LastName FirstName Email FavoriteColor DateOfBirth");
+            Console.Write("Input: ");
+            var record = Console.ReadLine();
+
+            _recordBusinessLogic.AddRecord(record);
+
+
             WriteMenu(_menuOptions, _menuOptions[0]);
         }
 

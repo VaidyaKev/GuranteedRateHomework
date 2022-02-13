@@ -7,5 +7,6 @@ namespace GuranteedRate.Homework.BusineesLogic.Interfaces
     {
         List<Person> GetRecords();
         void AddRecord(Person person);
+        void AddRecord(string record);
     }
 }

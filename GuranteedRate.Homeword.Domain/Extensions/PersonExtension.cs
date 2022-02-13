@@ -24,16 +24,15 @@ namespace GuranteedRate.Homework.Domain.Extensions
         public static Person ToObj(this string str, char[] delimiters)
         {
             var properties = str.Trim()
-                .Replace(" ", string.Empty)
                 .Split(delimiters);
 
             return new Person()
             {
-                FirstName = properties[0],
-                LastName = properties[1],
-                Email = properties[2],
-                DateOfBirth = DateTime.Parse(properties[3]),
-                FavoriteColor = properties[4]
+                FirstName = properties[0].Replace(" ", string.Empty),
+                LastName = properties[1].Replace(" ", string.Empty),
+                Email = properties[2].Replace(" ", string.Empty),
+                FavoriteColor = properties[3].Replace(" ", string.Empty),
+                DateOfBirth = DateTime.Parse(properties[4].Replace(" ", string.Empty)),
             };
         }
     }

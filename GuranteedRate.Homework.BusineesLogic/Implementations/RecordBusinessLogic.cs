@@ -11,7 +11,7 @@ namespace GuranteedRate.Homework.BusineesLogic.Implementations
     public class RecordBusinessLogic : IRecordBusinessLogic
     {
         private const string FilePrefixName = "PersonRecord";
-        private const char SeperationDelimiter = ',';
+        private readonly char[] _exceptedDelimiter;
         private readonly string _folderPath;
         private readonly IFileRepository _fileRepository;
 
@@ -19,6 +19,7 @@ namespace GuranteedRate.Homework.BusineesLogic.Implementations
         {
             _fileRepository = fileRepository;
             _folderPath = Directory.GetCurrentDirectory();
+            _exceptedDelimiter = new char[] { ',', '|', ' ' };
         }
 
         public void AddRecord(Person person)
@@ -26,6 +27,12 @@ namespace GuranteedRate.Homework.BusineesLogic.Implementations
             var fileCount = GetFileNames()
                             .Count(x => x.Contains(FilePrefixName));
             _fileRepository.WriteFileContents(_folderPath, $"{FilePrefixName}{++fileCount}", new string[] { person.ToStr()});
+        }
+
+        public void AddRecord(string record)
+        {
+            var person = record.ToObj(_exceptedDelimiter);
+            AddRecord(person);
         }
 
         public List<Person> GetRecords()
