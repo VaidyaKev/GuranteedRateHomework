@@ -1,6 +1,7 @@
 ﻿using GuranteedRate.Homework.BusineesLogic.DataContract;
 using GuranteedRate.Homework.Domain.Extensions;
 using GuranteedRate.Homework.Model;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -26,11 +27,16 @@ namespace GuranteedRate.Homework.Repository
 
         public void AddPerson(Person person)
         {
+            if(person == null)
+            {
+                throw new ArgumentNullException("Person", "Can Not be Null");
+            }
+
             var fileCount = GetPersonRecordNum();
             WriteFileContents(_folderPath, $"{FilePrefixName}{++fileCount}", new string[] { person.ToStr() });
         }
 
-        public IEnumerable<Person> GetPersonRecords()
+        public ICollection<Person> GetPersonRecords()
         {
             List<string> records = new List<string>();
             foreach (var file in GetFileNames())

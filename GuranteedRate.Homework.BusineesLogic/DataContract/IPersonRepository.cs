@@ -6,7 +6,7 @@ namespace GuranteedRate.Homework.BusineesLogic.DataContract
     public interface IPersonRepository
     {
         int GetPersonRecordNum();
-        IEnumerable<Person> GetPersonRecords();
+        ICollection<Person> GetPersonRecords();
         void AddPerson(Person person);
         //string[] GetFileNames(string folderPath);
         //string[] GetFileContent(string folderPath, string fileName);
