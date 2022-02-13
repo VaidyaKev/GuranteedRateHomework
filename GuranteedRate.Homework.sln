@@ -21,6 +21,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{D79D6653
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuranteedRate.Homework.Repository.Tests", "GuranteedRate.Homework.Repository.Tests\GuranteedRate.Homework.Repository.Tests.csproj", "{B88FD49F-E946-46F1-AC36-8331054A134F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuranteedRate.Homework.Domain.Tests", "GuranteedRate.Homework.Domain.Tests\GuranteedRate.Homework.Domain.Tests.csproj", "{89200868-FC81-41CD-9C28-7F396635204D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,12 +61,17 @@ Global
 		{B88FD49F-E946-46F1-AC36-8331054A134F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B88FD49F-E946-46F1-AC36-8331054A134F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B88FD49F-E946-46F1-AC36-8331054A134F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89200868-FC81-41CD-9C28-7F396635204D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89200868-FC81-41CD-9C28-7F396635204D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89200868-FC81-41CD-9C28-7F396635204D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89200868-FC81-41CD-9C28-7F396635204D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{B88FD49F-E946-46F1-AC36-8331054A134F} = {D79D6653-F74E-48CC-89B2-03557FE70603}
+		{89200868-FC81-41CD-9C28-7F396635204D} = {D79D6653-F74E-48CC-89B2-03557FE70603}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7F8A5DA1-095F-4CA2-98B5-E1764CF47723}
