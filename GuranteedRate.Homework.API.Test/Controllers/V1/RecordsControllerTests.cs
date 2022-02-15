@@ -27,7 +27,7 @@ namespace GuranteedRate.Homework.API.Test.Controllers.V1
         [Fact]
         public void GetBySortedFavoriteColor_ReturnOKList_Test()
         {
-            _sortHelperMock.Setup(x => x.SortByFavoriteColorAsc(It.IsAny<ICollection<Person>>())).Returns(new List<Person>());
+            _sortHelperMock.Setup(x => x.SortByFavoriteColorAsc(It.IsAny<ICollection<Person>>())).Returns(new List<Person>() { new Person() });
             GetBySortedList_ReturnOKList_Test(_recordsController.GetBySortedFavoriteColor);
             _sortHelperMock.Verify(x => x.SortByFavoriteColorAsc(It.IsAny<ICollection<Person>>()), Times.Once);
         }
@@ -49,7 +49,7 @@ namespace GuranteedRate.Homework.API.Test.Controllers.V1
         [Fact]
         public void GetBySortedBirthday_ReturnOKList_Test()
         {
-            _sortHelperMock.Setup(x => x.SortByDobAsc(It.IsAny<ICollection<Person>>())).Returns(new List<Person>());
+            _sortHelperMock.Setup(x => x.SortByDobAsc(It.IsAny<ICollection<Person>>())).Returns(new List<Person>() { new Person() });
             GetBySortedList_ReturnOKList_Test(_recordsController.GetBySortedBirthday);
             _sortHelperMock.Verify(x => x.SortByDobAsc(It.IsAny<ICollection<Person>>()), Times.Once);
         }
@@ -71,7 +71,7 @@ namespace GuranteedRate.Homework.API.Test.Controllers.V1
         [Fact]
         public void GetBySortedLastName_ReturnOKList_Test()
         {
-            _sortHelperMock.Setup(x => x.SortByLNameAsc(It.IsAny<ICollection<Person>>())).Returns(new List<Person>());
+            _sortHelperMock.Setup(x => x.SortByLNameAsc(It.IsAny<ICollection<Person>>())).Returns(new List<Person>() { new Person() });
             GetBySortedList_ReturnOKList_Test(_recordsController.GetBySortedLastName);
             _sortHelperMock.Verify(x => x.SortByLNameAsc(It.IsAny<ICollection<Person>>()), Times.Once);
         }
@@ -96,6 +96,10 @@ namespace GuranteedRate.Homework.API.Test.Controllers.V1
 
             var actual = func();
             Assert.IsType<OkObjectResult>(actual);
+            var okObject = actual as OkObjectResult;
+            var content = okObject.Value as ICollection<Person>;
+
+            Assert.True(content.Count > 0);
 
             _recordBusinessLogicMock.Verify(x => x.GetPersons(), Times.Once);
         }
