@@ -5,7 +5,7 @@ namespace GuranteedRate.Homework.BusineesLogic.Interfaces
 {
     public interface IRecordBusinessLogic
     {
-        ICollection<Person> GetRecords();
-        void AddRecord(string person);
+        ICollection<Person> GetPersons();
+        void AddPerson(string person);
     }
 }

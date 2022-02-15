@@ -16,12 +16,12 @@ namespace GuranteedRate.Homework.BusineesLogic.Implementations
             _personRepo = fileRepository;
         }
 
-        public ICollection<Person> GetRecords()
+        public ICollection<Person> GetPersons()
         {
             return _personRepo.GetPersonRecords();
         }
 
-        public void AddRecord(string person)
+        public void AddPerson(string person)
         {
             if(person == null || person == string.Empty)
             {

@@ -23,20 +23,20 @@ namespace GuranteedRate.Homework.BusinessLogic
         [Fact]
         public void AddRecord_DoesNotThrow_Test()
         {
-            var ex = Record.Exception(() => _recordBusinessLogic.AddRecord(MockPersonStr));
+            var ex = Record.Exception(() => _recordBusinessLogic.AddPerson(MockPersonStr));
         }
 
         [Fact]
         public void AddRecord_EmptyStr_Test()
         {
-            var ex = Assert.Throws<ArgumentException>(() => _recordBusinessLogic.AddRecord(string.Empty));
+            var ex = Assert.Throws<ArgumentException>(() => _recordBusinessLogic.AddPerson(string.Empty));
             Assert.Equal("Must Have Value (Parameter 'person')", ex.Message);
         }
 
         [Fact]
         public void AddRecord_NullStr_Test()
         {
-            var ex = Assert.Throws<ArgumentException>(() => _recordBusinessLogic.AddRecord(null));
+            var ex = Assert.Throws<ArgumentException>(() => _recordBusinessLogic.AddPerson(null));
             Assert.Equal("Must Have Value (Parameter 'person')", ex.Message);
         }
 
@@ -45,7 +45,7 @@ namespace GuranteedRate.Homework.BusinessLogic
         public void AddRecord_ArgumentNullExcpetion_Test()
         {
             _personRepositoryMock.Setup(x => x.AddPerson(It.IsAny<Person>())).Throws(new ArgumentNullException("mockParam", "Mock Excpetion"));
-            var ex = Assert.Throws<ArgumentNullException>(() => _recordBusinessLogic.AddRecord(MockPersonStr));
+            var ex = Assert.Throws<ArgumentNullException>(() => _recordBusinessLogic.AddPerson(MockPersonStr));
             Assert.Equal("Mock Excpetion (Parameter 'mockParam')", ex.Message);
             _personRepositoryMock.Verify(x => x.AddPerson(It.IsAny<Person>()), Times.Once);
         }
@@ -55,7 +55,7 @@ namespace GuranteedRate.Homework.BusinessLogic
         {
             var mockList = new List<Person>() { GetMockPerson(), GetMockPerson() };
             _personRepositoryMock.Setup(x => x.GetPersonRecords()).Returns(mockList);
-            var persons = _recordBusinessLogic.GetRecords();
+            var persons = _recordBusinessLogic.GetPersons();
             Assert.Equal(2, persons.Count);
             _personRepositoryMock.Verify(x => x.GetPersonRecords(), Times.Once);
         }
@@ -64,7 +64,7 @@ namespace GuranteedRate.Homework.BusinessLogic
         public void GetRecords_ThrowsException_Test()
         {
             _personRepositoryMock.Setup(x => x.GetPersonRecords()).Throws(new Exception("Generic Mock Exception"));
-            var ex = Assert.Throws<Exception>(() => _recordBusinessLogic.GetRecords());
+            var ex = Assert.Throws<Exception>(() => _recordBusinessLogic.GetPersons());
             Assert.Equal("Generic Mock Exception", ex.Message);
             _personRepositoryMock.Verify(x => x.GetPersonRecords(), Times.Once);
         }

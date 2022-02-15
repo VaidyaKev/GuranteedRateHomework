@@ -79,13 +79,13 @@ namespace GuranteedRate.Homework.Command
             Console.Write("Input: ");
             var record = Console.ReadLine();
 
-            _recordBusinessLogic.AddRecord(record);
+            _recordBusinessLogic.AddPerson(record);
             WriteMenu(_menuOptions, _menuOptions[0]);
         }
 
         private void SortByColorDescThenLNameAsc(string msg)
         {
-            var persons = _recordBusinessLogic.GetRecords();
+            var persons = _recordBusinessLogic.GetPersons();
             var orderedPersons = _sortHelper.SortByColorDescThenLNameAsc(persons);
             DisplayPersons(orderedPersons, msg);
             WriteMenu(_menuOptions, _menuOptions[0]);
@@ -93,7 +93,7 @@ namespace GuranteedRate.Homework.Command
 
         private void SortByDobAsc(string msg)
         {
-            var persons = _recordBusinessLogic.GetRecords();
+            var persons = _recordBusinessLogic.GetPersons();
             var orderedPersons = _sortHelper.SortByDobAsc(persons);
             DisplayPersons(orderedPersons, msg);
             WriteMenu(_menuOptions, _menuOptions[0]);
@@ -101,7 +101,7 @@ namespace GuranteedRate.Homework.Command
 
         private void SortByLNameDesc(string msg)
         {
-            var persons = _recordBusinessLogic.GetRecords();
+            var persons = _recordBusinessLogic.GetPersons();
             var orderedPersons = _sortHelper.SortByLNameDesc(persons);
             DisplayPersons(orderedPersons, msg);
             WriteMenu(_menuOptions, _menuOptions[0]);
