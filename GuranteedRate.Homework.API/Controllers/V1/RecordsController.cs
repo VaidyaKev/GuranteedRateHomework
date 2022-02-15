@@ -27,23 +27,7 @@ namespace GuranteedRate.Homework.API.Controllers.V1
         [HttpGet]
         public IActionResult GetBySortedFavoriteColor()
         {
-            try
-            {
-                var persons = _recordBusinessLogic.GetPersons();
-                if (persons == null)
-                {
-                    return NotFound();
-                }
-
-                var orderedPerson = _sortHelper.SortByFavoriteColorAsc(persons);
-
-                return Ok(orderedPerson);
-            }
-            catch(Exception ex)
-            {
-                //log(ex);
-                return StatusCode(500, "Encounterd an Error Fetching Person Records");
-            }
+            return GetSortedPersonList(_sortHelper.SortByFavoriteColorAsc);
         }
 
         [Route("records/birthday")]
@@ -53,22 +37,7 @@ namespace GuranteedRate.Homework.API.Controllers.V1
         [HttpGet]
         public IActionResult GetBySortedBirthday()
         {
-            try
-            {
-                var persons = _recordBusinessLogic.GetPersons();
-                if (persons == null)
-                {
-                    return NotFound();
-                }
-
-                var orderedPerson = _sortHelper.SortByDobAsc(persons);
-                return Ok(orderedPerson);
-            }
-            catch (Exception ex)
-            {
-                //log(ex);
-                return StatusCode(500, "Encounterd an Error Fetching Person Records");
-            }
+            return GetSortedPersonList(_sortHelper.SortByDobAsc);
         }
 
         [Route("records/name")]
@@ -78,21 +47,7 @@ namespace GuranteedRate.Homework.API.Controllers.V1
         [HttpGet]
         public IActionResult GetBySortedLastName()
         {
-            try
-            {
-                var persons = _recordBusinessLogic.GetPersons();
-                if (persons == null)
-                {
-                    return NotFound();
-                }
-                var orderedPerson = _sortHelper.SortByLNameAsc(persons);
-                return Ok(orderedPerson);
-            }
-            catch (Exception ex)
-            {
-                //log(ex);
-                return StatusCode(500, "Encounterd an Error Fetching Person Records");
-            }
+            return GetSortedPersonList(_sortHelper.SortByLNameAsc);
         }
 
         [Route("records")]
@@ -115,6 +70,28 @@ namespace GuranteedRate.Homework.API.Controllers.V1
                     return BadRequest(ex.Message);
                 }
 
+                return StatusCode(500, "Encounterd an Error Fetching Person Records");
+            }
+        }
+
+
+        private IActionResult GetSortedPersonList(Func<ICollection<Person>, ICollection<Person>> func)
+        {
+            try
+            {
+                var persons = _recordBusinessLogic.GetPersons();
+                if (persons == null)
+                {
+                    return NotFound();
+                }
+
+                var orderedPerson = func(persons);
+
+                return Ok(orderedPerson);
+            }
+            catch (Exception ex)
+            {
+                //log(ex);
                 return StatusCode(500, "Encounterd an Error Fetching Person Records");
             }
         }

@@ -27,43 +27,101 @@ namespace GuranteedRate.Homework.API.Test.Controllers.V1
         [Fact]
         public void GetBySortedFavoriteColor_ReturnOKList_Test()
         {
-            _recordBusinessLogicMock.Setup(x => x.GetPersons()).Returns(new List<Person>());
             _sortHelperMock.Setup(x => x.SortByFavoriteColorAsc(It.IsAny<ICollection<Person>>())).Returns(new List<Person>());
-
-            var actual = _recordsController.GetBySortedFavoriteColor();
-            Assert.IsType<OkObjectResult>(actual);
-
-            _recordBusinessLogicMock.Verify(x => x.GetPersons(), Times.Once);
+            GetBySortedList_ReturnOKList_Test(_recordsController.GetBySortedFavoriteColor);
             _sortHelperMock.Verify(x => x.SortByFavoriteColorAsc(It.IsAny<ICollection<Person>>()), Times.Once);
         }
-
         [Fact]
         public void GetBySortedFavoriteColor_ReturnNotFound_Test()
         {
-            ICollection<Person> persons = null;
-            _recordBusinessLogicMock.Setup(x => x.GetPersons()).Returns(persons);
             _sortHelperMock.Setup(x => x.SortByFavoriteColorAsc(It.IsAny<ICollection<Person>>())).Returns(new List<Person>());
-
-            var actual = _recordsController.GetBySortedFavoriteColor();
-            Assert.IsType<NotFoundResult>(actual);
-
-            _recordBusinessLogicMock.Verify(x => x.GetPersons(), Times.Once);
+            GetBySortedList_ReturnNotFound_Test(_recordsController.GetBySortedFavoriteColor);
+            _sortHelperMock.Verify(x => x.SortByFavoriteColorAsc(It.IsAny<ICollection<Person>>()), Times.Never);
+        }
+        [Fact]
+        public void GetBySortedFavoriteColor_ArgumentException_Test()
+        {
+            _sortHelperMock.Setup(x => x.SortByFavoriteColorAsc(It.IsAny<ICollection<Person>>())).Returns(new List<Person>());
+            GetBySortedList_ArgumentException_Test(_recordsController.GetBySortedFavoriteColor);
             _sortHelperMock.Verify(x => x.SortByFavoriteColorAsc(It.IsAny<ICollection<Person>>()), Times.Never);
         }
 
         [Fact]
-        public void GetBySortedFavoriteColor_ArgumentException_Test()
+        public void GetBySortedBirthday_ReturnOKList_Test()
+        {
+            _sortHelperMock.Setup(x => x.SortByDobAsc(It.IsAny<ICollection<Person>>())).Returns(new List<Person>());
+            GetBySortedList_ReturnOKList_Test(_recordsController.GetBySortedBirthday);
+            _sortHelperMock.Verify(x => x.SortByDobAsc(It.IsAny<ICollection<Person>>()), Times.Once);
+        }
+        [Fact]
+        public void GetBySortedBirthday_ReturnNotFound_Test()
+        {
+            _sortHelperMock.Setup(x => x.SortByDobAsc(It.IsAny<ICollection<Person>>())).Returns(new List<Person>());
+            GetBySortedList_ReturnNotFound_Test(_recordsController.GetBySortedBirthday);
+            _sortHelperMock.Verify(x => x.SortByDobAsc(It.IsAny<ICollection<Person>>()), Times.Never);
+        }
+        [Fact]
+        public void GetBySortedBirthday_ArgumentException_Test()
+        {
+            _sortHelperMock.Setup(x => x.SortByDobAsc(It.IsAny<ICollection<Person>>())).Returns(new List<Person>());
+            GetBySortedList_ArgumentException_Test(_recordsController.GetBySortedBirthday);
+            _sortHelperMock.Verify(x => x.SortByDobAsc(It.IsAny<ICollection<Person>>()), Times.Never);
+        }
+
+        [Fact]
+        public void GetBySortedLastName_ReturnOKList_Test()
+        {
+            _sortHelperMock.Setup(x => x.SortByLNameAsc(It.IsAny<ICollection<Person>>())).Returns(new List<Person>());
+            GetBySortedList_ReturnOKList_Test(_recordsController.GetBySortedLastName);
+            _sortHelperMock.Verify(x => x.SortByLNameAsc(It.IsAny<ICollection<Person>>()), Times.Once);
+        }
+        [Fact]
+        public void GetBySortedLastName_ReturnNotFound_Test()
+        {
+            _sortHelperMock.Setup(x => x.SortByLNameAsc(It.IsAny<ICollection<Person>>())).Returns(new List<Person>());
+            GetBySortedList_ReturnNotFound_Test(_recordsController.GetBySortedLastName);
+            _sortHelperMock.Verify(x => x.SortByLNameAsc(It.IsAny<ICollection<Person>>()), Times.Never);
+        }
+        [Fact]
+        public void GetBySortedLastName_ArgumentException_Test()
+        {
+            _sortHelperMock.Setup(x => x.SortByLNameAsc(It.IsAny<ICollection<Person>>())).Returns(new List<Person>());
+            GetBySortedList_ArgumentException_Test(_recordsController.GetBySortedLastName);
+            _sortHelperMock.Verify(x => x.SortByLNameAsc(It.IsAny<ICollection<Person>>()), Times.Never);
+        }
+
+        private void GetBySortedList_ReturnOKList_Test(Func<IActionResult> func)
+        {
+            _recordBusinessLogicMock.Setup(x => x.GetPersons()).Returns(new List<Person>());
+
+            var actual = func();
+            Assert.IsType<OkObjectResult>(actual);
+
+            _recordBusinessLogicMock.Verify(x => x.GetPersons(), Times.Once);
+        }
+
+        private void GetBySortedList_ReturnNotFound_Test(Func<IActionResult> func)
+        {
+            ICollection<Person> persons = null;
+            _recordBusinessLogicMock.Setup(x => x.GetPersons()).Returns(persons);
+
+            var actual = func();
+            Assert.IsType<NotFoundResult>(actual);
+
+            _recordBusinessLogicMock.Verify(x => x.GetPersons(), Times.Once);
+        }
+
+        private void GetBySortedList_ArgumentException_Test(Func<IActionResult> func)
         {
             ICollection<Person> persons = null;
             _recordBusinessLogicMock.Setup(x => x.GetPersons()).Throws(new ArgumentException("Mock Exception"));
-            _sortHelperMock.Setup(x => x.SortByFavoriteColorAsc(It.IsAny<ICollection<Person>>())).Returns(new List<Person>());
+            
 
-            var actual = _recordsController.GetBySortedFavoriteColor();
+            var actual = func();
             Assert.IsType<ObjectResult>(actual);
             Assert.Equal(500, (actual as ObjectResult).StatusCode);
 
             _recordBusinessLogicMock.Verify(x => x.GetPersons(), Times.Once);
-            _sortHelperMock.Verify(x => x.SortByFavoriteColorAsc(It.IsAny<ICollection<Person>>()), Times.Never);
         }
     }
 }
