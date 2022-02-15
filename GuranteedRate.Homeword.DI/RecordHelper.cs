@@ -12,11 +12,16 @@ namespace GuranteedRate.Homework.DI
         public RecordHelper(IPersonRepository personRepository)
         {
             _personRepository = personRepository;
-            CreateBasicPersonRecord();
+            CreateBasicPersonRecordIfNeeded();
         }
 
-        public void CreateBasicPersonRecord()
+        public void CreateBasicPersonRecordIfNeeded()
         {
+            if(_personRepository.GetPersonRecordNum() > 0)
+            {
+                return;
+            }
+
             var persons = new List<Person>()
             {
                 new Person()
@@ -32,7 +37,7 @@ namespace GuranteedRate.Homework.DI
                     LastName = "Tree",
                     FirstName = "Olive",
                     Email = "OliveTree@hotmail.com",
-                    FavoriteColor = "Brown",
+                    FavoriteColor = "Green",
                     DateOfBirth = DateTime.Parse("2007/08/11")
                 },
                 new Person()
@@ -40,7 +45,7 @@ namespace GuranteedRate.Homework.DI
                     LastName = "Scope",
                     FirstName = "Perry",
                     Email = "45Peryy@yahoo.com",
-                    FavoriteColor = "Brown",
+                    FavoriteColor = "Red",
                     DateOfBirth = DateTime.Parse("1993/02/05")
                 }
             };
