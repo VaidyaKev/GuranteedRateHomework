@@ -12,8 +12,8 @@ namespace GuranteedRate.Homework.DI
         public static void ConfigureServices(IServiceCollection services)
         {
             services
-                .AddScoped<IRecordBusinessLogic, RecordBusinessLogic>()
-                .AddScoped<IPersonRepository, PersonFileRepository>();
+                .AddTransient<IRecordBusinessLogic, RecordBusinessLogic>()
+                .AddTransient<IPersonRepository, PersonFileRepository>();
         }
     }
 }
