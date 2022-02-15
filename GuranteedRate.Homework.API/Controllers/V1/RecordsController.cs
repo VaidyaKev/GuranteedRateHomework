@@ -22,6 +22,7 @@ namespace GuranteedRate.Homework.API.Controllers.V1
 
         [Route("records/color")]
         [ProducesResponseType(typeof(List<Person>), 200)]
+        [ProducesResponseType(typeof(string), 404)]
         [ProducesResponseType(typeof(string), 500)]
         [HttpGet]
         public IActionResult GetBySortedFavoriteColor()
@@ -47,6 +48,7 @@ namespace GuranteedRate.Homework.API.Controllers.V1
 
         [Route("records/birthday")]
         [ProducesResponseType(typeof(List<Person>), 200)]
+        [ProducesResponseType(typeof(string), 404)]
         [ProducesResponseType(typeof(string), 500)]
         [HttpGet]
         public IActionResult GetBySortedBirthday()
@@ -71,6 +73,7 @@ namespace GuranteedRate.Homework.API.Controllers.V1
 
         [Route("records/name")]
         [ProducesResponseType(typeof(List<Person>), 200)]
+        [ProducesResponseType(typeof(string), 404)]
         [ProducesResponseType(typeof(string), 500)]
         [HttpGet]
         public IActionResult GetBySortedLastName()
