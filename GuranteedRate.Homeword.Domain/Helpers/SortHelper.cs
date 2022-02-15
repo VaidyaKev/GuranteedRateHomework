@@ -24,6 +24,22 @@ namespace GuranteedRate.Homework.Domain.Helpers
                 .ToList();
         }
 
+        public ICollection<Person> SortByFavoriteColorAsc(ICollection<Person> persons)
+        {
+            VerifyListNotEmptyOrNull(persons);
+            return persons
+                .OrderBy(x => x.FavoriteColor)
+                .ToList();
+        }
+
+        public ICollection<Person> SortByLNameAsc(ICollection<Person> persons)
+        {
+            VerifyListNotEmptyOrNull(persons);
+            return persons
+                .OrderBy(x => x.LastName)
+                .ToList();
+        }
+
         public ICollection<Person> SortByLNameDesc(ICollection<Person> persons)
         {
             VerifyListNotEmptyOrNull(persons);

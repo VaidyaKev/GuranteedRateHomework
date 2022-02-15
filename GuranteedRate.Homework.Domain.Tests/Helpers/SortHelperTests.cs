@@ -65,6 +65,30 @@ namespace GuranteedRate.Homework.Domain.Helpers.Tests
         }
 
         [Fact]
+        public void SortByFavoriteColorAsc_ThrowsArgumentExceptionNull_Test()
+        {
+            Action action = () => _sortHelper.SortByFavoriteColorAsc(null);
+            Verify_ThrowsArgumentException_Test(action);
+        }
+        [Fact]
+        public void SortByFavoriteColorAsc_ThrowsArgumentExceptionEmpty_Test()
+        {
+            Action action = () => _sortHelper.SortByFavoriteColorAsc(new List<Person>());
+            Verify_ThrowsArgumentException_Test(action);
+        }
+        [Fact]
+        public void SortByFavoriteColorAsc_ExpectedOrderedList_Test()
+        {
+            var mockPersons = GetMockPersonList();
+            var orderedList = _sortHelper.SortByFavoriteColorAsc(mockPersons);
+
+            var expected = JsonConvert.SerializeObject(mockPersons.OrderBy(x => x.FavoriteColor));
+            var actual = JsonConvert.SerializeObject(orderedList);
+
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact]
         public void SortByLNameDesc_ThrowsArgumentExceptionNull_Test()
         {
             Action action = () => _sortHelper.SortByLNameDesc(null);
@@ -88,6 +112,29 @@ namespace GuranteedRate.Homework.Domain.Helpers.Tests
             Assert.Equal(expected, actual);
         }
 
+        [Fact]
+        public void SortByLNameAsc_ThrowsArgumentExceptionNull_Test()
+        {
+            Action action = () => _sortHelper.SortByLNameAsc(null);
+            Verify_ThrowsArgumentException_Test(action);
+        }
+        [Fact]
+        public void SortByLNameAsc_ThrowsArgumentExceptionEmpty_Test()
+        {
+            Action action = () => _sortHelper.SortByLNameAsc(new List<Person>());
+            Verify_ThrowsArgumentException_Test(action);
+        }
+        [Fact]
+        public void SortByLNameAsc_ExpectedOrderedList_Test()
+        {
+            var mockPersons = GetMockPersonList();
+            var orderedList = _sortHelper.SortByLNameAsc(mockPersons);
+
+            var expected = JsonConvert.SerializeObject(mockPersons.OrderBy(x => x.LastName));
+            var actual = JsonConvert.SerializeObject(orderedList);
+
+            Assert.Equal(expected, actual);
+        }
 
         private void Verify_ThrowsArgumentException_Test(Action action)
         {
