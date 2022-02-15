@@ -5,12 +5,11 @@ namespace GuranteedRate.Homework.API.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class TestController : ControllerBase
+    public class PersonsController : ControllerBase
     {
-
         private readonly IRecordBusinessLogic _recordBusinessLogic;
 
-        public TestController(IRecordBusinessLogic recordBusinessLogic)
+        public PersonsController(IRecordBusinessLogic recordBusinessLogic)
         {
             _recordBusinessLogic = recordBusinessLogic;
         }
