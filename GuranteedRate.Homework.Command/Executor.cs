@@ -20,9 +20,9 @@ namespace GuranteedRate.Homework.Command
             _menuOptions = new List<MenuOptions>()
             {
                 new MenuOptions("AddPerson", () => AddPerson("Add Person Record")),
-                new MenuOptions("SortByColorThenLNameAsc", () => SortByColorDescThenLNameAsc("Sort by First Name")),
-                new MenuOptions("SortByDobAsc", () => SortByDobAsc("Sort by Last Name")),
-                new MenuOptions("SortByLNameDesc", () => SortByLNameDesc("Sort by Email")),
+                new MenuOptions("SortByColorThenLNameAsc", () => SortByColorDescThenLNameAsc("Sort by Favorite Color Descending Order Then by Last Name in Ascending Order")),
+                new MenuOptions("SortByDobAsc", () => SortByDobAsc("Sort by Date of Birth in Ascending Order")),
+                new MenuOptions("SortByLNameDesc", () => SortByLNameDesc("Sort by Last Name in Descending Order")),
             };
         }
 
@@ -136,7 +136,7 @@ namespace GuranteedRate.Homework.Command
         {
             Console.Clear();
             WriteTempMsg(msg);
-            Console.WriteLine(msg);
+            Console.WriteLine();
 
             var consoleTable = new ConsoleTable("Last Name", "First Name", "Email", "Favorite Coler", "Date of Birth");
             foreach(var person in persons)
