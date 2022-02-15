@@ -1,6 +1,5 @@
 ﻿using ConsoleTables;
 using GuranteedRate.Homework.BusineesLogic.Interfaces;
-using GuranteedRate.Homework.Domain.Extensions;
 using GuranteedRate.Homework.Model;
 using System;
 using System.Collections.Generic;
@@ -11,17 +10,19 @@ namespace GuranteedRate.Homework.Command
     public class Executor : IExecutor
     {
         private readonly IRecordBusinessLogic _recordBusinessLogic;
+        private readonly ISortHelper _sortHelper;
         private List<MenuOptions> _menuOptions;
 
-        public Executor(IRecordBusinessLogic recordBusinessLogic)
+        public Executor(IRecordBusinessLogic recordBusinessLogic, ISortHelper sortHelper)
         {
             _recordBusinessLogic = recordBusinessLogic;
+            _sortHelper = sortHelper;
             _menuOptions = new List<MenuOptions>()
             {
                 new MenuOptions("AddPerson", () => AddPerson("Add Person Record")),
-                new MenuOptions("SortByColorThenLNameAsc", () => Sorta("Sort by First Name")),
-                new MenuOptions("SortByDobAsc", () => Sortb("Sort by Last Name")),
-                new MenuOptions("SortByLNameDesc", () => sortc("Sort by Email")),
+                new MenuOptions("SortByColorThenLNameAsc", () => SortByColorDescThenLNameAsc("Sort by First Name")),
+                new MenuOptions("SortByDobAsc", () => SortByDobAsc("Sort by Last Name")),
+                new MenuOptions("SortByLNameDesc", () => SortByLNameDesc("Sort by Email")),
             };
         }
 
@@ -78,29 +79,30 @@ namespace GuranteedRate.Homework.Command
             var record = Console.ReadLine();
 
             _recordBusinessLogic.AddRecord(record);
-
-
             WriteMenu(_menuOptions, _menuOptions[0]);
         }
 
-        private void Sorta(string msg)
+        private void SortByColorDescThenLNameAsc(string msg)
         {
-            WriteTempMsg(msg);
-
+            var persons = _recordBusinessLogic.GetRecords();
+            var orderedPersons = _sortHelper.SortByColorDescThenLNameAsc(persons);
+            DisplayPersons(orderedPersons, msg);
             WriteMenu(_menuOptions, _menuOptions[0]);
         }
 
-        private void Sortb(string msg)
+        private void SortByDobAsc(string msg)
         {
-            WriteTempMsg(msg);
-
+            var persons = _recordBusinessLogic.GetRecords();
+            var orderedPersons = _sortHelper.SortByDobAsc(persons);
+            DisplayPersons(orderedPersons, msg);
             WriteMenu(_menuOptions, _menuOptions[0]);
         }
 
-        private void sortc(string msg)
+        private void SortByLNameDesc(string msg)
         {
-            WriteTempMsg(msg);
-
+            var persons = _recordBusinessLogic.GetRecords();
+            var orderedPersons = _sortHelper.SortByLNameDesc(persons);
+            DisplayPersons(orderedPersons, msg);
             WriteMenu(_menuOptions, _menuOptions[0]);
         }
 
@@ -128,6 +130,26 @@ namespace GuranteedRate.Homework.Command
 
                 Console.WriteLine(option.Name);
             }
+        }
+
+        private void DisplayPersons(ICollection<Person> persons, string msg)
+        {
+            Console.Clear();
+            WriteTempMsg(msg);
+            Console.WriteLine(msg);
+
+            var consoleTable = new ConsoleTable("Last Name", "First Name", "Email", "Favorite Coler", "Date of Birth");
+            foreach(var person in persons)
+            {
+                consoleTable.AddRow(person.LastName, person.FirstName, person.Email, person.FavoriteColor, person.DateOfBirth.ToShortDateString());
+            }
+            consoleTable
+                .Configure(c => c.NumberAlignment = Alignment.Right)
+                .Write(Format.Alternative);
+
+            Console.WriteLine();
+            Console.WriteLine("Please Any Key To Continue....");
+            Console.ReadKey();
         }
     }
 }
