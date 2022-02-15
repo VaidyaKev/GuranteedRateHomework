@@ -9,13 +9,11 @@ namespace GuranteedRate.Homework.BusineesLogic.Implementations
 {
     public class RecordBusinessLogic : IRecordBusinessLogic
     {
-        private readonly char[] _exceptedDelimiter;
         private readonly IPersonRepository _personRepo;
 
         public RecordBusinessLogic(IPersonRepository fileRepository)
         {
             _personRepo = fileRepository;
-            _exceptedDelimiter = new char[] { ',', '|' };
         }
 
         public ICollection<Person> GetRecords()
@@ -30,12 +28,7 @@ namespace GuranteedRate.Homework.BusineesLogic.Implementations
                 throw new ArgumentException("Must Have Value", "person");
             }
 
-            if (person.IndexOfAny(_exceptedDelimiter) == -1)
-            {
-                person.Replace(' ', ',');
-            }
-
-            var personObj = person.ToObj(_exceptedDelimiter);
+            var personObj = person.ToObj();
             _personRepo.AddPerson(personObj);
         }
     }

@@ -1,41 +1,38 @@
 ﻿using GuranteedRate.Homework.Model;
 using System;
+using System.Linq;
 
 namespace GuranteedRate.Homework.Domain.Extensions
 {
     public static class PersonExtension
     {
-        private const char Delimiter = ',';
+        private const char DefaultDelimiter = ',';
+        private static char[] Delimiters = new char[] {'|', DefaultDelimiter };
 
         public static string ToStr(this Person person)
         {
-            return $"{person.LastName}{Delimiter}" + 
-                $"{person.FirstName}{Delimiter}" +
-                $"{person.Email}{Delimiter}" +
-                $"{person.FavoriteColor}{Delimiter}" +
+            return $"{person.LastName}{DefaultDelimiter}" + 
+                $"{person.FirstName}{DefaultDelimiter}" +
+                $"{person.Email}{DefaultDelimiter}" +
+                $"{person.FavoriteColor}{DefaultDelimiter}" +
                 $"{person.DateOfBirth.ToString("d")}";
         }
 
         public static Person ToObj(this string str)
         {
-            if (!str.Contains(","))
+            if (str.IndexOfAny(Delimiters) == -1)
             {
-                throw new ArgumentException("Must be Comma Seperated Value");
+                str = str.Replace(' ', DefaultDelimiter);
             }
 
-            return ToObj(str, new char[] { Delimiter });
-        }
-
-        public static Person ToObj(this string str, char[] delimiters)
-        {
-            if(delimiters == null || delimiters.Length == 0)
+            if (str.IndexOfAny(Delimiters) == -1)
             {
-                throw new ArgumentException("Must Have at Least One Delimeters", "delimeters");
+                throw new ArgumentException($"Must Contain at Least One Delimeters");
             }
 
             var properties = str.Trim()
                 .Replace(" ", string.Empty)
-                .Split(delimiters);
+                .Split(Delimiters);
 
             return new Person()
             {

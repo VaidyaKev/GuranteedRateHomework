@@ -35,42 +35,28 @@ namespace GuranteedRate.Homework.Domain.Tests.Extentions
         }
 
         [Fact]
-        public void ToObj_NotCommaSeperatedString_Test()
+        public void ToObj_NotDelimeterSeperatedString_Test()
         {
             string personStr = MockPersonStr.Replace(',', '/');
             var ex = Assert.Throws<ArgumentException>(() => personStr.ToObj());
-            Assert.Equal("Must be Comma Seperated Value", ex.Message);
+            Assert.Equal("Must Contain at Least One Delimeters", ex.Message);
         }
 
         [Theory]
         [InlineData('|')]
         [InlineData(',')]
-        [InlineData('^')]
+        [InlineData(' ')]
         public void ToObj_AnyDelimeterSeperateString_Test(char delimeter)
         {
             var mockPersonStr = MockPersonStr.Replace(',', delimeter);
 
-            var actual = JsonConvert.SerializeObject(mockPersonStr.ToObj(new char[] { '+', '-', '*', delimeter }));
+            var actual = JsonConvert.SerializeObject(mockPersonStr.ToObj());
             var expected = JsonConvert.SerializeObject(GetMockPerson());
 
             Assert.Equal(expected, actual);
         }
 
-        [Fact]
-        public void ToObj_NoDelimeterSeperateString_Test()
-        {
-            var ex = Assert.Throws<ArgumentException>(() => MockPersonStr.ToObj(new char[0]));
-            Assert.Equal("Must Have at Least One Delimeters (Parameter 'delimeters')", ex.Message);
-        }
-
-        [Fact]
-        public void ToObj_NullDelimeterSeperateString_Test()
-        {
-            var ex = Assert.Throws<ArgumentException>(() => MockPersonStr.ToObj(null));
-            Assert.Equal("Must Have at Least One Delimeters (Parameter 'delimeters')", ex.Message);
-        }
-
-        private static string MockPersonStr => "UnitTest, Mock, UnitTest@Moq.com, MockColor, 12/07/2021";
+        private static string MockPersonStr => "UnitTest,Mock,UnitTest@Moq.com,MockColor,12/07/2021";
 
         private Person GetMockPerson()
         {
