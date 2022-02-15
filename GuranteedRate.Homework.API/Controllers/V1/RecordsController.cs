@@ -20,6 +20,10 @@ namespace GuranteedRate.Homework.API.Controllers.V1
             _sortHelper = sortHelper;
         }
 
+        /// <summary>
+        /// Gets Person Record Sorted By Favorite Color in Ascending Order.
+        /// </summary>
+        /// <returns></returns>
         [Route("records/color")]
         [ProducesResponseType(typeof(List<Person>), 200)]
         [ProducesResponseType(typeof(string), 404)]
@@ -30,6 +34,10 @@ namespace GuranteedRate.Homework.API.Controllers.V1
             return GetSortedPersonList(_sortHelper.SortByFavoriteColorAsc);
         }
 
+        /// <summary>
+        /// Gets Person Record Sorted By Date of Birth in Ascending Order.
+        /// </summary>
+        /// <returns></returns>
         [Route("records/birthday")]
         [ProducesResponseType(typeof(List<Person>), 200)]
         [ProducesResponseType(typeof(string), 404)]
@@ -40,6 +48,10 @@ namespace GuranteedRate.Homework.API.Controllers.V1
             return GetSortedPersonList(_sortHelper.SortByDobAsc);
         }
 
+        /// <summary>
+        /// Gets Person Record Sorted By Last Name in Ascending Order.
+        /// </summary>
+        /// <returns></returns>
         [Route("records/name")]
         [ProducesResponseType(typeof(List<Person>), 200)]
         [ProducesResponseType(typeof(string), 404)]
@@ -50,6 +62,11 @@ namespace GuranteedRate.Homework.API.Controllers.V1
             return GetSortedPersonList(_sortHelper.SortByLNameAsc);
         }
 
+        /// <summary>
+        /// Able to Add Person Record.
+        /// </summary>
+        /// <param name="personStr">ex. LastName, FirstName, Email, Favorite Color, DOB</param>
+        /// <returns></returns>
         [Route("records")]
         [ProducesResponseType(typeof(List<Person>), 200)]
         [ProducesResponseType(typeof(string), 500)]
