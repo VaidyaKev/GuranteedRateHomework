@@ -1,5 +1,6 @@
 ﻿using ConsoleTables;
 using GuranteedRate.Homework.BusineesLogic.Interfaces;
+using GuranteedRate.Homework.Domain.Helpers;
 using GuranteedRate.Homework.Model;
 using System;
 using System.Collections.Generic;

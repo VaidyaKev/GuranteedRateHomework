@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace GuranteedRate.Homework.Command
+namespace GuranteedRate.Homework.Domain.Helpers
 {
     public class SortHelper : ISortHelper
     {

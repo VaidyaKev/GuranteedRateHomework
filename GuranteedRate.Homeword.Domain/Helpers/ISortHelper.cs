@@ -1,7 +1,7 @@
 ﻿using GuranteedRate.Homework.Model;
 using System.Collections.Generic;
 
-namespace GuranteedRate.Homework.Command
+namespace GuranteedRate.Homework.Domain.Helpers
 {
     public interface ISortHelper
     {

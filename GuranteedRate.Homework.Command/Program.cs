@@ -16,8 +16,7 @@ namespace GuranteedRate.Homework.Command
         static void DependecyInjection()
         {
             var serviceProvider = new ServiceCollection()
-                .AddScoped<IExecutor, Executor>()
-                .AddScoped<ISortHelper, SortHelper>();
+                .AddScoped<IExecutor, Executor>();
 
             DependencyInjection.ConfigureServices(serviceProvider);
             var buildService = serviceProvider.BuildServiceProvider();

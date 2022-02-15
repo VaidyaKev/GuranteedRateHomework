@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using Xunit;
 using System.Linq;
 
-namespace GuranteedRate.Homework.Command.Tests
+namespace GuranteedRate.Homework.Domain.Helpers.Tests
 {
     public class SortHelperTests
     {
