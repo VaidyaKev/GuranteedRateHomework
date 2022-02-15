@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GuranteedRate.Homeword.Domain\GuranteedRate.Homework.Domain.csproj" />
+    <ProjectReference Include="..\GuranteedRate.Homework.Model\GuranteedRate.Homework.Model.csproj" />
+  </ItemGroup>
+
+</Project>
